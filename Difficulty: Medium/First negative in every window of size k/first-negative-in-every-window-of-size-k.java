@@ -10,43 +10,42 @@ class Solution {
 
     // Function to find the first negative integer in every window of size k
     static List<Integer> printFirstNegativeInteger(int arr[], int k) {
+        // write code here
         LinkedList<Integer> deque = new LinkedList<>();
-        List<Integer> result = new ArrayList<>();
-        int i = 0, j = 0;
-
-        // Traverse the array
-        while (j < arr.length) {
-            // Add current element to deque if it is negative
-            if (arr[j] < 0) {
-                deque.add(arr[j]);
-            }
-
-            // Check if we have reached the window size
-            if (j - i + 1 == k) {
-                // If deque is empty, no negative number in this window, add 0
-                if (deque.isEmpty()) {
-                    result.add(0);
-                } else {
-                    // Add the first negative integer of the current window
-                    result.add(deque.peekFirst());
-                }
-
-                // Slide the window forward: remove the first element if it's negative
-                if (arr[i] < 0 && !deque.isEmpty()) {
-                    deque.pollFirst();
-                }
-                
-                // Move the start of the window
-                i++;
-            }
-
-            // Move the end of the window
-            j++;
+            List<Integer> result = new ArrayList<>();
+        int i=0, j =0;
+      
+          while (j < arr.length) {
+        // Add current element to deque if it is negative
+        if (arr[j] < 0) {
+            deque.add(arr[j]);
         }
 
-        return result;
+        // Check if we have reached the window size
+        if (j - i + 1 == k) {
+            // If deque is empty, no negative number in this window, add 0 to result
+            if (deque.isEmpty()) {
+                result.add(0);
+            } else {
+                // Add the first negative integer of the current window to result
+                result.add(deque.peekFirst());
+            }
+
+            // Slide the window forward: remove the first element if it's negative
+            if (arr[i] < 0 && !deque.isEmpty()) {
+                deque.pollFirst();
+            }
+
+            // Move the start of the window
+            i++;
+        }
+
+        // Move the end of the window
+        j++;
     }
 
+    return result;
+}
 }
 
 //{ Driver Code Starts.
