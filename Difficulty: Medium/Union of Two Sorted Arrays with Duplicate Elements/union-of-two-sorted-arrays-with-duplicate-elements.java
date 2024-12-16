@@ -46,7 +46,6 @@ class Main {
 // User function Template for Java
 
 // a,b : the arraysimport java.util.ArrayList;
-
 class Solution {
     // Function to return a list containing the union of the two arrays.
     public static ArrayList<Integer> findUnion(int a[], int b[]) {
@@ -63,11 +62,12 @@ class Solution {
             set.add(num);
         }
         
-        // Convert the HashSet to a sorted ArrayList.
+        // Convert the HashSet to an ArrayList.
         ArrayList<Integer> unionList = new ArrayList<>(set);
-        unionList.sort(null); // Sort the list in ascending order.
+        
+        // Sort the ArrayList in ascending order.
+        Collections.sort(unionList); // Sorting the ArrayList
         
         return unionList;
     }
 }
-
